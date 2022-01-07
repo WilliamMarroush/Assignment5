@@ -20,7 +20,6 @@ function createrow(){
     col3.classList.add("border-dark");
     col3.classList.add("box");
     col3.classList.add("white");
-
     row.append(col1);
     row.append(col2);
     row.append(col3);
@@ -28,4 +27,7 @@ function createrow(){
 }
 $('.add-row').click(function (){
     createrow();
+})
+$('.add-col').click(function(){
+    createcolumn();
 })
