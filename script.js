@@ -24,6 +24,11 @@ function createcolumn(){
     newrow.classList.add("col-sm","border","border-dark","box");
     $('.row').append(newrow);
 }
+//Delete Columns
+function deletecol(){
+    const rows=document.getElementsByClassName("row");
+    rows.removeChild(rows.lastChild);
+}
 
 
 
@@ -37,4 +42,7 @@ $('.add-col').click(function(){
 });
 $('.del-row').click(function(){
     deleterow();
+})
+$('.del-col').click(function(){
+    deletecol();
 })
