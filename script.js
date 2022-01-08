@@ -21,13 +21,15 @@ function deleterow(){
 function createcolumn(){
     colnum++;
     const newrow = document.createElement("div");
-    newrow.classList.add("col-sm","border","border-dark","box");
+    newrow.classList.add("col-sm","border","border-dark","box",colnum);
     $('.row').append(newrow);
 }
 //Delete Columns
 function deletecol(){
-    const rows=document.getElementsByClassName("row");
-    rows.removeChild(rows.lastChild);
+    for(let steps=0;steps<colnum;steps++){
+        $("."+colnum).last().remove();
+    }
+    colnum--;
 }
 
 
