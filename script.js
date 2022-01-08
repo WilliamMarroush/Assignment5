@@ -1,6 +1,7 @@
 console.log("Hello from script.js!");
 //Main Functions
 let colnum = 3;
+let defcolor = "white";
 //Create Rows
 function createrow(){
     const row = document.createElement("div");
@@ -31,6 +32,11 @@ function deletecol(){
     }
     colnum--;
 }
+//Change click color
+function changeClickColor(){
+    const check = document.querySelector("#colselect");
+    defcolor=check.value;
+}
 
 
 
@@ -47,4 +53,10 @@ $('.del-row').click(function(){
 })
 $('.del-col').click(function(){
     deletecol();
+})
+$('.option').click(function(){
+    changeClickColor();
+})
+$(".col-sm").click(function(){
+    $(this).css("background-color",defcolor);
 })
