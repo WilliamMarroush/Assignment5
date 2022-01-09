@@ -17,6 +17,9 @@
     A: Fixed by adding container around it all
     -->
     <div class="container">
+        <div class="d-flex flex-row justify-content-end">
+            <button type="button" class="btn btn-danger m-3" onClick="window.location.reload();">Reset Page</button>
+        </div>
         <div class="mt-5 content">
             <div class="row">
                 <div class="col-sm border border-dark box draggable"></div>
@@ -35,42 +38,56 @@
                 <div class="col-sm border border-dark box draggable"></div>
             </div>
         </div>
-
         <!-- BUTTONS: USE FLEXBOX TO ALIGN ITEMS NEATLY-->
-        <div class="">
+    <div class="d-flex flex-row justify-content-between">
+        <div>
             <button type="button" class="btn btn-dark my-3 add-row">Add Row</button>
             <button type="button" class="btn btn-dark my-3 del-row">Delete Row</button>
+        </div>
+        <div>
             <button type="button" class="btn btn-dark my-3 add-col">Add Column</button>
             <button type="button" class="btn btn-dark my-3 del-col">Delete Column</button>
         </div>
-        <div class="">
-            <button type="button" class="btn btn-danger m-3" onClick="window.location.reload();">Reset Page</button>
-        </div>
+    </div>
+    </div>
+    <!-- ADD FLEXBOX TO ALIGN ITEMS in the center-->
+    <div class="d-flex flex-column align-items-center">
+        <h6 class=py-2>Select from the following list and click or drag over a box to change the color!</h6>
+        <form>
+            <label class = py-2 for="">Choose a color to paint with:</label>
+            <select id="colselect" onclick=changeClickColor()>
+                <option class ="redoption option" style = "background-color: red" value = "red">Red</option>
+                <option class = "blueoption option" style = "background-color: blue" value = "blue">Blue</option>
+                <option class = "greenoption option" style = "background-color: green" value="green">Green</option>
+                <option class = "champoption option" style = "background-color: coral"value = "coral">Chapagne</option>
+                <option class = "whiteoption option" style = "background-color: white" value="white">White</option>
+            </select>
+        </form>
+    </div>
 
-        <!-- ADD FLEXBOX TO ALIGN ITEMS in the center-->
-        <div class="">
-            <h6 class=py-2>Select from the following list and click or drag over a box to change the color!</h6>
-            <form>
-                <label for="">Choose a color:</label>
-                <select id="colselect" onclick=changeClickColor()>
-                    <option class ="redoption option" style = "background-color: red" value = "red">Red</option>
-                    <option class = "blueoption option" style = "background-color: blue" value = "blue">Blue</option>
-                    <option class = "greenoption option" style = "background-color: green" value="green">Green</option>
-                    <option class = "champoption option" style = "background-color: coral"value = "coral">Chapagne</option>
-                    <option class = "whiteoption option" style = "background-color: white" value="white">White</option>
-                </select>
-            </form>
-        </div>
+    <div class="d-flex flex-column align-items-center change-white">
+        <h6 class=py-2>Select a color and it will change all the <b>white</b> boxes to the color</h6>
+        <button type="button" class='btn btn-dark my-3 change-all-white'>Fill all white boxes</button>
+    </div>
 
-        <div class="change-white">
-            <h6 class=py-2>Select a color and it will change all the <b>white</b> boxes to the color</h6>
-            <button type="button" class='change-all-white'>Fill all white boxes</button>
-        </div>
+    <div class="d-flex flex-column align-items-center">
+        <h6 class=py-2>Select a color and it will change ALL the boxes to the color</h6>
+        <button type="button" class='btn btn-dark my-3 fill-all-boxes'>Fill all boxes</button>
+    </div>
 
-        <div class="">
-            <h6 class=py-2>Select a color and it will change ALL the boxes to the color</h6>
-            <button type="button" class='fill-all-boxes'>Fill all boxes</button>
-        </div>
+    <div class="d-flex flex-column align-items-center fill-all-x-boxes">
+        <h6 class=py-2>Select a color, and it will change ALL the boxes of THAT color, to the color on the selector.</h6>
+        <form>
+            <label for="">Choose a color to replace:</label><br>
+            <select id="repselect" onclick=setRepColor()>
+                <option class ="redoption option" style = "background-color: red" value = "red">Red</option>
+                <option class = "blueoption option" style = "background-color: blue" value = "blue">Blue</option>
+                <option class = "greenoption option" style = "background-color: green" value="green">Green</option>
+                <option class = "champoption option" style = "background-color: coral"value = "coral">Chapagne</option>
+            </select>
+        </form>
+        <button type="button" class='btn btn-dark my-3 fill-x-boxes'>Fill all boxes of color ___</button>
+
     </div>
 
     <!-- don't forget to add your script file -->

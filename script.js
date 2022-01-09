@@ -1,8 +1,8 @@
-console.log("Hello from script.js!");
 //Main Functions
 let colnum = 3;
 let defcolor = "white";
 let mouseDown= false;
+let repcolor = "white";
 document.body.onmousedown = function(){
     mouseDown=true;
 }
@@ -58,6 +58,22 @@ function changeClickColor(){
     const check = document.querySelector("#colselect");
     defcolor=check.value;
 }
+//Change all ___ tiles
+function setRepColor(){
+    const check = document.querySelector("#repselect");
+    repcolor= check.value;
+    $(".fill-x-boxes").css("background-color",repcolor);
+}
+//change all replacement color
+function fillColored(){
+    let tilelist = document.getElementsByClassName("col-sm border border-dark box");
+    for (let steps=0;steps<tilelist.length;steps++){
+        if (tilelist[steps].style.backgroundColor==repcolor){
+            tilelist[steps].style.backgroundColor=defcolor;
+        }
+    }
+}
+
 //Change all white
 function fillwhite(){
     let tilelist = document.getElementsByClassName("col-sm border border-dark box");
@@ -82,18 +98,30 @@ function colordrag(elem){
 //create rows
 $('.add-row').click(function (){
     createrow();
+    $(".draggable").mouseover(function(){
+        colordrag(this);
+    })
 })
 //create columns
 $('.add-col').click(function(){
     createcolumn();
+    $(".draggable").mouseover(function(){
+        colordrag(this);
+    })
 });
 //delete rows
 $('.del-row').click(function(){
     deleterow();
+    $(".draggable").mouseover(function(){
+        colordrag(this);
+    })
 })
 //delete columns
 $('.del-col').click(function(){
     deletecol();
+    $(".draggable").mouseover(function(){
+        colordrag(this);
+    })
 })
 //choose default color
 $('.option').click(function(){
@@ -111,4 +139,7 @@ $(".fill-all-boxes").click(function(){
 $(".draggable").mouseover(function(){
     colordrag(this);
 })
-
+//FillColored boxes to default color
+$(".fill-x-boxes").click(function(){
+    fillColored();
+})

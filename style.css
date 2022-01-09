@@ -2,3 +2,9 @@
     width: 100px;
     height: 100px;
 }
+.btn{
+    font-family:'Courier New', Courier, monospace;
+}
+body{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
