@@ -1,14 +1,18 @@
-//Main Functions
+//Global Variables
 let colnum = 3;
 let defcolor = "white";
 let mouseDown= false;
 let repcolor = "white";
+
+//==================================ALL JAVASCRIPT FUNCTIONS===============================\\
+//Check if mouse is being held down or not
 document.body.onmousedown = function(){
     mouseDown=true;
 }
 document.body.onmouseup = function(){
     mouseDown=false;
 }
+//######################Create Rows and Columns
 //Create Rows
 function createrow(){
     const row = document.createElement("div");
@@ -26,11 +30,6 @@ function createrow(){
         $(this).css("background-color",defcolor);
     }));
 }
-//Delete Rows
-function deleterow(){
-    var rowcont = document.querySelector(".mt-5");
-    rowcont.removeChild(rowcont.lastChild);
-}
 //Create Columns
 function createcolumn(){
     colnum++;
@@ -45,6 +44,12 @@ function createcolumn(){
         $(this).css("background-color",defcolor);
     }));
 }
+//########################Delete Rows and Columns
+//Delete Rows
+function deleterow(){
+    var rowcont = document.querySelector(".mt-5");
+    rowcont.removeChild(rowcont.lastChild);
+}
 //Delete Columns
 function deletecol(){
    let mycol = document.getElementsByClassName("row");
@@ -53,18 +58,20 @@ function deletecol(){
    }
    colnum--;
 }
-//Change click color
+
+//########################Color Selector Interactibles
+//Change Default Paint Color
 function changeClickColor(){
     const check = document.querySelector("#colselect");
     defcolor=check.value;
 }
-//Change all ___ tiles
+//Change Replacement Tile Color
 function setRepColor(){
     const check = document.querySelector("#repselect");
     repcolor= check.value;
     $(".fill-x-boxes").css("background-color",repcolor);
 }
-//change all replacement color
+//Change All Replacement Tile background color to default paint color
 function fillColored(){
     let tilelist = document.getElementsByClassName("col-sm border border-dark box");
     for (let steps=0;steps<tilelist.length;steps++){
@@ -73,8 +80,7 @@ function fillColored(){
         }
     }
 }
-
-//Change all white
+//Change all white tile background color to default paint color
 function fillwhite(){
     let tilelist = document.getElementsByClassName("col-sm border border-dark box");
     for (let steps=0;steps<tilelist.length;steps++){
@@ -94,52 +100,56 @@ function colordrag(elem){
     }
 }
 
-//Main JQuery
-//create rows
+//=====================================ALL JQUERY========================================\\
+//###############Adding to Grid
+//Add Rows Button
 $('.add-row').click(function (){
     createrow();
     $(".draggable").mouseover(function(){
         colordrag(this);
     })
 })
-//create columns
+//Add Columns Button
 $('.add-col').click(function(){
     createcolumn();
     $(".draggable").mouseover(function(){
         colordrag(this);
     })
 });
-//delete rows
+//###################Deleting from grid
+//Delete Rows Button
 $('.del-row').click(function(){
     deleterow();
     $(".draggable").mouseover(function(){
         colordrag(this);
     })
 })
-//delete columns
+//Delete Columns Button
 $('.del-col').click(function(){
     deletecol();
     $(".draggable").mouseover(function(){
         colordrag(this);
     })
 })
-//choose default color
+
+//########################Color Selecting
+//Selecting Main Paint color
 $('.option').click(function(){
     changeClickColor();
 })
-//fill all white boxes
+//Fill all White Boxes Button
 $(".change-all-white").click(function(){
    fillwhite();
 })
-//fill ALL boxes
+//Fill ALL Boxes Button
 $(".fill-all-boxes").click(function(){
     $(".col-sm").css("background-color",defcolor);
 })
-//Drag over boxes to change color
-$(".draggable").mouseover(function(){
-    colordrag(this);
-})
-//FillColored boxes to default color
+//Fill all ____ Boxes Button
 $(".fill-x-boxes").click(function(){
     fillColored();
+})
+//Drag Mouse Over Tiles to Change Color
+$(".draggable").mouseover(function(){
+    colordrag(this);
 })

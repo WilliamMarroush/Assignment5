@@ -13,14 +13,13 @@
 </head>
 
 <body>
-    <!-- Fix this so that it's not stretching from one side of the screen to the other
-    A: Fixed by adding container around it all
-    -->
     <div class="container">
         <div class="d-flex flex-row justify-content-end">
+            <!--Button to Reload Website-->
             <button type="button" class="btn btn-danger m-3" onClick="window.location.reload();">Reset Page</button>
         </div>
         <div class="mt-5 content">
+            <!--Div dedicated to holding the grid-->
             <div class="row">
                 <div class="col-sm border border-dark box draggable"></div>
                 <div class="col-sm border border-dark box draggable"></div>
@@ -38,8 +37,9 @@
                 <div class="col-sm border border-dark box draggable"></div>
             </div>
         </div>
-        <!-- BUTTONS: USE FLEXBOX TO ALIGN ITEMS NEATLY-->
+    
     <div class="d-flex flex-row justify-content-between">
+        <!-- Grid Size Manipulation Buttons -->
         <div>
             <button type="button" class="btn btn-dark my-3 add-row">Add Row</button>
             <button type="button" class="btn btn-dark my-3 del-row">Delete Row</button>
@@ -50,8 +50,8 @@
         </div>
     </div>
     </div>
-    <!-- ADD FLEXBOX TO ALIGN ITEMS in the center-->
     <div class="d-flex flex-column align-items-center">
+        <!--Main Paint Color Selector Form-->
         <h6 class=py-2>Select from the following list and click or drag over a box to change the color!</h6>
         <form>
             <label class = py-2 for="">Choose a color to paint with:</label>
@@ -66,16 +66,19 @@
     </div>
 
     <div class="d-flex flex-column align-items-center change-white">
+        <!--Button to change all white boxes to paint color-->
         <h6 class=py-2>Select a color and it will change all the <b>white</b> boxes to the color</h6>
         <button type="button" class='btn btn-dark my-3 change-all-white'>Fill all white boxes</button>
     </div>
 
     <div class="d-flex flex-column align-items-center">
+        <!--Button to change ALL boxes to paint color-->
         <h6 class=py-2>Select a color and it will change ALL the boxes to the color</h6>
         <button type="button" class='btn btn-dark my-3 fill-all-boxes'>Fill all boxes</button>
     </div>
 
     <div class="d-flex flex-column align-items-center fill-all-x-boxes">
+        <!--Button to change all boxes of ___ color to paint color-->
         <h6 class=py-2>Select a color, and it will change ALL the boxes of THAT color, to the color on the selector.</h6>
         <form>
             <label for="">Choose a color to replace:</label><br>
@@ -89,8 +92,5 @@
         <button type="button" class='btn btn-dark my-3 fill-x-boxes'>Fill all boxes of color ___</button>
 
     </div>
-
-    <!-- don't forget to add your script file -->
 </body>
-
 </html>
