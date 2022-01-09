@@ -15,7 +15,7 @@ function createrow(){
     row.classList.add("row");
     for (let steps=0;steps<colnum;steps++){
         const col = document.createElement("div");
-        col.classList.add("col-sm","border","border-dark","box");
+        col.classList.add("col-sm","border","border-dark","box","draggable");
         col.addEventListener("click",$(".col-sm").click(function(){
             $(this).css("background-color",defcolor);
         }));
@@ -35,7 +35,8 @@ function deleterow(){
 function createcolumn(){
     colnum++;
     const newrow = document.createElement("div");
-    newrow.classList.add("col-sm","border","border-dark","box");
+    newrow.classList.add("col-sm","border","border-dark","box","draggable");
+    newrow.classList.remove("dragging");
     newrow.addEventListener("click",$(".col-sm").click(function(){
         $(this).css("background-color",defcolor);
     }));
@@ -66,11 +67,14 @@ function fillwhite(){
         }
     }
 }
+//Drag color across grid
 function colordrag(elem){
-    if(mouseDown){
-        elem.classList.add("dragging");
-        $(".dragging").css("background-color",defcolor);
-        elem.classList.remove("dragging");
+    if (elem.classList.contains("draggable")){
+        if(mouseDown){
+            elem.classList.add("dragging");
+            $(".dragging").css("background-color",defcolor);
+            elem.classList.remove("dragging");
+        }
     }
 }
 
@@ -91,14 +95,9 @@ $('.del-row').click(function(){
 $('.del-col').click(function(){
     deletecol();
 })
-//choose defaul color
+//choose default color
 $('.option').click(function(){
     changeClickColor();
-    addListeners();
-})
-//click on to change color
-$(".col-sm").click(function(){
-    $(this).css("background-color",defcolor);
 })
 //fill all white boxes
 $(".change-all-white").click(function(){
@@ -109,6 +108,7 @@ $(".fill-all-boxes").click(function(){
     $(".col-sm").css("background-color",defcolor);
 })
 //Drag over boxes to change color
-$(".col-sm").mouseover(function(){
+$(".draggable").mouseover(function(){
     colordrag(this);
 })
+
