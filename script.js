@@ -60,18 +60,13 @@ function fillwhite(){
     }
 }
 
-/*function addListeners(){
+function addListeners(){
     const allCols = document.getElementsByClassName("col-sm");
     for (let steps=0;steps<allCols.length;steps++){
-        allCols[steps].addEventListener("mousedown",function(){
-            $(this).css("background-color",defcolor);
-        })
-        allCols[steps].addEventListener("mousemove",function(){
-            $(this).css("background-color",defcolor);
-        })
+        allCols[steps].addEventListener("")
     }
-}*/
-
+   
+}
 
 //Main JQuery
 //create rows
@@ -99,17 +94,6 @@ $('.option').click(function(){
 /*$(".col-sm").click(function(){
     $(this).css("background-color",defcolor);
 })*/
-$(".col-sm").mouseenter(function(){
-    $(".col-sm").onmousedown = function(){
-        $(this).css("background-color",defcolor);
-    }
-    $(".col-sm").onmousemove = function(){
-        $(".col-sm").onmousedown= function(){
-            $(this).css("background-color",defcolor);
-        }
-    }
-
-})
 //fill all white boxes
 $(".change-all-white").click(function(){
    fillwhite();
