@@ -19,23 +19,21 @@
     <div class="container">
         <div class="mt-5 content">
             <div class="row">
-                <div class="col-sm border border-dark box "></div>
-                <div class="col-sm border border-dark box "></div>
-                <div class="col-sm border border-dark box "></div>
+                <div class="col-sm border border-dark box"></div>
+                <div class="col-sm border border-dark box"></div>
+                <div class="col-sm border border-dark box"></div>
             </div>
 
             <div class="row">
-                <div class="col-sm border border-dark box "></div>
-                <div class="col-sm border border-dark box "></div>
-                <div class="col-sm border border-dark box "></div>
+                <div class="col-sm border border-dark box"></div>
+                <div class="col-sm border border-dark box"></div>
+                <div class="col-sm border border-dark box"></div>
             </div>
-
             <div class="row">
-                <div class="col-sm border border-dark box "></div>
-                <div class="col-sm border border-dark box "></div>
-                <div class="col-sm border border-dark box "></div>
+                <div class="col-sm border border-dark box"></div>
+                <div class="col-sm border border-dark box"></div>
+                <div class="col-sm border border-dark box"></div>
             </div>
-
         </div>
 
         <!-- BUTTONS: USE FLEXBOX TO ALIGN ITEMS NEATLY-->
@@ -51,51 +49,26 @@
 
         <!-- ADD FLEXBOX TO ALIGN ITEMS in the center-->
         <div class="">
-            <h6 class=py-2>Select from the following list and click on a box to change the color!</h6>
+            <h6 class=py-2>Select from the following list and click or drag over a box to change the color!</h6>
             <form>
                 <label for="">Choose a color:</label>
                 <select id="colselect" onclick=changeClickColor()>
                     <option class ="redoption option" value = "red">Red</option>
                     <option class = "blueoption option" value = "blue">Blue</option>
                     <option class = "greenoption option" value="green">Green</option>
-                    <option class = "champoption option" value = "champ">Chapagne</option>
+                    <option class = "champoption option" value = "coral">Chapagne</option>
                 </select>
             </form>
         </div>
 
-        <div class="">
+        <div class="change-white">
             <h6 class=py-2>Select a color and it will change all the <b>white</b> boxes to the color</h6>
-            <form>
-                <label for="">Choose a color:</label>
-                <select name="" id="">
-                    <!-- Add more option values for different colors -->
-                    <option value="red">Red</option>
-                </select>
-                <button type="button" class=''>Fill all white boxes</button>
-            </form>
+            <button type="button" class='change-all-white'>Fill all white boxes</button>
         </div>
 
         <div class="">
             <h6 class=py-2>Select a color and it will change ALL the boxes to the color</h6>
-            <form>
-                <label for="">Choose a color:</label>
-                <select name="" id="">
-                    <!-- Add more option values for different colors -->
-                    <option value="red">Red</option>
-                </select>
-                <button type="button" class=''>Fill all boxes</button>
-            </form>
-        </div>
-
-        <div class="">
-            <h6 class=py-2>Select a color and then drag the color over the boxes to change them!</h6>
-            <form>
-                <label for="">Choose a color:</label>
-                <select name="" id="">
-                    <!-- Add more option values for different colors -->
-                    <option value="red">Red</option>
-                </select>
-            </form>
+            <button type="button" class='fill-all-boxes'>Fill all boxes</button>
         </div>
     </div>
 
