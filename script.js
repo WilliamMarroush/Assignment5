@@ -2,6 +2,13 @@ console.log("Hello from script.js!");
 //Main Functions
 let colnum = 3;
 let defcolor = "white";
+let mouseDown= false;
+document.body.onmousedown = function(){
+    mouseDown=true;
+}
+document.body.onmouseup = function(){
+    mouseDown=false;
+}
 //Create Rows
 function createrow(){
     const row = document.createElement("div");
@@ -54,18 +61,17 @@ function changeClickColor(){
 function fillwhite(){
     let tilelist = document.getElementsByClassName("col-sm border border-dark box");
     for (let steps=0;steps<tilelist.length;steps++){
-        if (tilelist[steps].style.backgroundColor==""){
+        if (tilelist[steps].style.backgroundColor=="" || tilelist[steps].style.backgroundColor=="white"){
             tilelist[steps].style.backgroundColor=defcolor;
         }
     }
 }
-
-function addListeners(){
-    const allCols = document.getElementsByClassName("col-sm");
-    for (let steps=0;steps<allCols.length;steps++){
-        allCols[steps].addEventListener("")
+function colordrag(elem){
+    if(mouseDown){
+        elem.classList.add("dragging");
+        $(".dragging").css("background-color",defcolor);
+        elem.classList.remove("dragging");
     }
-   
 }
 
 //Main JQuery
@@ -91,9 +97,9 @@ $('.option').click(function(){
     addListeners();
 })
 //click on to change color
-/*$(".col-sm").click(function(){
+$(".col-sm").click(function(){
     $(this).css("background-color",defcolor);
-})*/
+})
 //fill all white boxes
 $(".change-all-white").click(function(){
    fillwhite();
@@ -101,4 +107,8 @@ $(".change-all-white").click(function(){
 //fill ALL boxes
 $(".fill-all-boxes").click(function(){
     $(".col-sm").css("background-color",defcolor);
+})
+//Drag over boxes to change color
+$(".col-sm").mouseover(function(){
+    colordrag(this);
 })
